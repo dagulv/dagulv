@@ -1,0 +1,64 @@
+{
+    "title": "",
+    "description": "Portfolio för Dag Ulvsbäck, en full-stack webbutvecklare som specialiserar sig på att bygga skalbara webbapplikationer med modern teknik. Utforska mina senaste projekt och hör av dig",
+    "name": "Dag Ulvsbäck",
+    "role": "Fullstackutvecklare",
+    "intro": "Skapar system. Bygger sofistikerade program & upplevelser på webben.",
+    "content": "Jag är nuvarande en fullstackutvecklare på webbyrån Webbmaffian i Stockholm. Min expertis är inom Go, JavaScript, PostgreSQL, Svelte och PHP som jag jobbar dagligen med. Jag är passionerad för att bygga kvalitativa system, utöka mina kunskaper och ha kul när jag kodar.",
+    "articles": [
+        {
+            "title": "Designstudion",
+            "description": "3D-viewer för företag",
+            "link": "/"
+        },
+        {
+            "title": "C2",
+            "description": "Ett unikt & skräddarsytt webbsystem",
+            "link": "/"
+        }
+    ],
+    "projects": [
+        {
+            "title": "Designstudion",
+            "description": "3D-viewer för företag",
+            "link": "/projekt/designstudion"
+        },
+        {
+            "title": "Ioffice",
+            "description": "Ett unikt & skräddarsytt webbsystem",
+            "link": "/projekt/ioffice"
+        }
+    ],
+    "experience": [
+        {
+            "imgUrl": "/webmafia.svg",
+            "title": "Webbmaffian",
+            "description": "Fullstackutvecklare",
+            "from": "2023-01-16",
+            "to": null
+        },
+        {
+            "imgUrl": "/smode.png",
+            "title": "Smode",
+            "description": "Webbutvecklare",
+            "from": "2022-06-22",
+            "to": "2023-10-22"
+        }
+    ],
+    "education": [
+        {
+            "imgUrl": "/webmafia.svg",
+            "title": "ITHS",
+            "description": "Webbutvecklare",
+            "from": "2021-07-26",
+            "to": "2023-05-26"
+        },
+        {
+            "imgUrl": "/smode.png",
+            "title": "KTH",
+            "description": "Fastighet & finans",
+            "from": "2020-07-12",
+            "to": "2021-06-26"
+        }
+    ]
+}

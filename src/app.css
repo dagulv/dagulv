@@ -1,0 +1,95 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-gold-100: #f0e8dc;
+    --color-gold-200: #e9dcca;
+    --color-gold-300: #e1d1b9;
+    --color-gold-400: #dac5a7;
+    --color-gold-500: #ae9e86;
+    --color-gold-600: #343230;
+    --color-gold-700: #8d7e67;
+    --color-gold-750: #2e2921;
+    --color-gold-800: #181716;
+    --color-gold-900: #161411;
+
+    --animate-blurslide-in-x: blurslide-in-x 300ms forwards;
+    --animate-blur-out-x: blur-out-x 300ms backwards;
+    --animate-slide-in: slide-in 300ms forwards;
+
+    @keyframes blurslide-in-y {
+        from {
+            opacity: 0.6;
+            filter: blur(0.25rem);
+            transform: translateY(1rem);
+        }
+        to {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes blurslide-in-x {
+        0% {
+            opacity: 0.6;
+            filter: blur(0.25rem);
+            transform: translateX(-1rem);
+        }
+        100% {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes blur-out-x {
+        100% {
+            opacity: 1;
+            /* filter: blur(0); */
+        }
+        0% {
+            opacity: 0;
+            /* filter: blur(0.25rem); */
+        }
+    }
+}
+
+@layer base {
+    body {
+        background-color: var(--color-gold-900);
+        color: var(--color-gold-300);
+        font-family: 'Inter Variable', 'Verdana', sans-serif;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;    
+    }
+
+    h2 {
+        @apply mb-4 text-xs font-medium text-gold-700 uppercase;
+    }
+}
+
+@layer utilities {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        @media (width >= 80rem) {
+            max-width: 40rem;
+        }
+
+        @media (width >= 40rem) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+
+    .animate {
+        animation: blurslide-in-y 150ms both ease-in;
+        animation-delay: calc(150ms * var(--stagger));
+
+        @media screen and (prefers-reduced-motion: reduce) {
+            animation: none !important;
+        }
+    }
+}
