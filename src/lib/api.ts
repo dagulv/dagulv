@@ -19,21 +19,35 @@ import type { pageTypes } from './types';
 // 	throw new PageError(pageContent);
 // }
 
+const db = import.meta.glob("$db/**/*.*", { eager: true })
+
 export async function getPage<T extends keyof pageTypes>(
 	parent: () => Promise<PageServerParentData>,
-	ext: string,
-	...slug: T[]
+	ext: 'json' | 'md',
+	slug: T,
+	...file: string[]
 ) {
 	const data = await parent();
 
 	const lang = data.lang ?? defaultLang;
 
-	const { default: pageContent }: { default: pageTypes[T] } = await import(
-		`$db/${lang}/${slug.join('/')}.${ext}`
-	);
-	console.log(pageContent);
+	let path = `/src/db/${lang}/${slug}.${ext}`
 
-	return pageContent;
+	if(file.length > 0) {
+		path = `/src/db/${lang}/${slug}/${file.join('/')}.${ext}`;
+	}
+	
+	if(!db[path]) {
+		throw new Error("not found");
+	}
+	
+	const module = await db[path];;
+	
+	if(ext === "md") {
+		return module as { html: string };
+	}
+	
+	return module as pageTypes[T];
 }
 
 export const slugs: Record<string, string> = {

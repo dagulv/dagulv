@@ -1,9 +1,20 @@
 {
+    "name": "Dag Ulvsbäck",
     "present": "Nuvarande",
     "experience": "Erfarenhet",
     "education": "Utbildning",
     "skills": "Tekniska kompetenser",
     "projects": "Projekt",
     "articles": "Artiklar",
-    "today": "Idag"
+    "today": "Idag",
+    "nav": [
+        {
+            "link": "https://github.com/",
+            "label": "Github"
+        },
+        {
+            "link": "https://linkedin.com/",
+            "label": "Linkedin"
+        }
+    ]
 }

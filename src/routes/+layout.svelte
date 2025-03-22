@@ -1,4 +1,5 @@
 <script>
+	import Footer from '$components/Footer.svelte';
 	import { setLangContext, setMiscContext } from '$lib/contexts';
 	import '../app.css';
 	import '@fontsource-variable/inter';
@@ -10,3 +11,5 @@
 </script>
 
 {@render children()}
+
+<Footer />

@@ -55,17 +55,50 @@
 }
 
 @layer base {
+    html {
+        height: 100%;
+        box-sizing: border-box;
+    }
+
     body {
         background-color: var(--color-gold-900);
         color: var(--color-gold-300);
         font-family: 'Inter Variable', 'Verdana', sans-serif;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;    
+        -moz-osx-font-smoothing: grayscale;  
+        height: 100%;
+        display: flex;
+        flex-direction: column;  
     }
 
+    main {
+        flex: 1;
+    }
+
+    h1 {
+        @apply text-3xl mb-4
+    }
     h2 {
-        @apply mb-4 text-xs font-medium text-gold-700 uppercase;
+        @apply text-2xl mb-4
+    }
+    h3 {
+        @apply text-xl mb-4
+    }
+    h4 {
+        @apply text-lg mb-4
+    }
+
+    p {
+        @apply mb-4
+    }
+
+    ul {
+        @apply list-disc mb-4 pl-4
+    }
+
+    img {
+        @apply rounded-xs
     }
 }
 
@@ -82,6 +115,10 @@
             padding-left: 2rem;
             padding-right: 2rem;
         }
+    }
+
+    .label {
+        @apply mb-4 text-xs font-medium text-gold-700 uppercase;
     }
 
     .animate {

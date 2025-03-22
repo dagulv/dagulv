@@ -1,19 +1,19 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
 	import { getMiscContext } from '$lib/contexts';
+	import Header from '$components/Header.svelte';
 
 	let { data }: PageProps = $props();
+
+	console.log('content', data.content);
 
 	const misc = getMiscContext();
 </script>
 
-<main class="mb-16 flex flex-col items-center gap-20">
-	<div class="animate container">
-		<p>{'test'}</p>
-	</div>
+<Header title={data.page.title} subtitle={data.page.subtitle} />
 
+<main class=" mb-16 flex flex-col items-center gap-20 pt-16">
 	<div class="container">
-		<h2 class="animate">{misc.today}</h2>
-		<p class="animate">{'content'}</p>
+		{@html data.content.html}
 	</div>
 </main>

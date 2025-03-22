@@ -15,18 +15,25 @@ export type indexPage = {
 	education: timelineItem[];
 };
 
-export type page404 = {
+export type errorPage = {
 	title: string;
 	description: string;
 	message: string;
 };
 
+export type projectPage = {
+	title: string;
+	subtitle: string;
+}
+
 export type pageTypes = {
 	index: indexPage;
-	'404': page404;
+	'404': errorPage;
+	'projects': projectPage;
 };
 
 export type misc = {
+	name: string;
 	present: string;
 	experience: string;
 	education: string;
@@ -34,6 +41,10 @@ export type misc = {
 	projects: string;
 	articles: string;
 	today: string;
+	nav: {
+		link: string;
+		label: string;
+	}[]
 };
 
 export type lang = 'sv' | 'en';

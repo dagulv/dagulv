@@ -1,9 +1,20 @@
 {
+    "name": "Dag Ulvsbäck",
     "present": "Present",
     "experience": "Experience",
     "education": "Education",
     "skills": "Technical skills",
     "projects": "Projects",
     "articles": "Articles",
-    "today": "Today"
+    "today": "Today",
+    "nav": [
+        {
+            "link": "https://github.com/",
+            "label": "Github"
+        },
+        {
+            "link": "https://linkedin.com/",
+            "label": "Linkedin"
+        }
+    ]
 }
