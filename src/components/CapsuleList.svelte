@@ -4,7 +4,7 @@
 	let { items = [] }: { items: iconOption[] } = $props();
 </script>
 
-<ul class="animate flex flex-wrap gap-1">
+<ul class="animate m-0 flex flex-wrap gap-1 p-0">
 	{#each items as item}
 		<li class="contents">
 			<span

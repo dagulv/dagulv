@@ -1,12 +1,11 @@
 <script lang="ts">
-	import { getMiscContext } from '$lib/contexts';
 	import type { postItem } from '$lib/types';
 	import { ChevronRight } from 'lucide-svelte';
 
-	let { items = [] }: { items: postItem[] } = $props();
+	let { items = [], class: className }: { items: postItem[]; class?: string } = $props();
 </script>
 
-<ul class="flex flex-col gap-4">
+<ul class={['m-0 flex flex-col gap-4 p-0', className]}>
 	{#each items as item}
 		<li class="contents">
 			<a

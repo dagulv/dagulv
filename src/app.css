@@ -108,12 +108,18 @@
         padding-right: 1rem;
 
         @media (width >= 80rem) {
-            max-width: 40rem;
+            max-width: 80rem;
         }
 
         @media (width >= 40rem) {
             padding-left: 2rem;
             padding-right: 2rem;
+        }
+    }
+
+    .small {
+        @media (width >= 80rem) {
+            max-width: 44rem;
         }
     }
 

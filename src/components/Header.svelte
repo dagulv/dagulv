@@ -1,35 +1,62 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { slugs } from '$lib/api';
+	import { defaultLang, otherLangs } from '$lib/constants';
 	import { getLangContext } from '$lib/contexts';
 
-	let { title, subtitle }: { title: string; subtitle: string } = $props();
+	let {
+		title,
+		subtitle,
+		class: className
+	}: { title: string; subtitle: string; class?: string } = $props();
 
-	const { sv, en } = $derived.by(() => {
+	const langs = $derived.by(() => {
 		let path = page.url.pathname;
 
-		if (path.startsWith('/en')) {
-			path = path.slice(3);
+		const normalizedSlug = slugs[path];
+
+		const langs: Record<string, string> = [];
+
+		for (const slug of Object.entries(slugs)) {
+			if (slug[1] !== normalizedSlug) {
+				continue;
+			}
+
+			const currLang = otherLangs.find((lang) => slug[0].startsWith(`/${lang}/`));
+
+			if (typeof currLang !== 'string') {
+				langs.push({ [defaultLang]: slug[0] });
+
+				continue;
+			}
+
+			langs.push({ [currLang]: slug[0] });
 		}
 
-		return {
-			sv: page.url.origin + path + page.url.search,
-			en: page.url.origin + '/en' + path + page.url.search
-		};
+		return langs;
 	});
 
-	const lang = getLangContext();
+	const currLang = getLangContext();
 </script>
 
-<header class="mt-4 mb-16 flex justify-center md:mt-32">
-	<div class="container flex items-baseline justify-between">
+<header class={['flex justify-center', className]}>
+	<div class="flex w-full items-baseline justify-between">
 		<div>
-			<h1 class="text-gold-400 m-0 mb-2 text-base font-bold">{title}</h1>
-			<p class="text-gold-700 text-sm">{subtitle}</p>
+			<h1 class="text-gold-400 m-0 mb-1 text-base font-bold">{title}</h1>
+			<p class="text-gold-700 m-0 text-sm">{subtitle}</p>
 		</div>
 
 		<nav>
 			<div class="text-gold-500 flex gap-0.5">
-				<a
+				{#each langs as l}
+					{@const [lang, link] = Object.entries(l)[0]}
+					<a
+						data-sveltekit-reload
+						class={['cursor-pointer hover:underline', currLang === lang && 'underline']}
+						href={link}>{lang}</a
+					>
+				{/each}
+				<!-- <a
 					data-sveltekit-reload
 					class={['cursor-pointer hover:underline', lang === 'sv' && 'underline']}
 					href={sv}>SV</a
@@ -39,7 +66,7 @@
 					data-sveltekit-reload
 					class={['cursor-pointer hover:underline', lang === 'en' && 'underline']}
 					href={en}>EN</a
-				>
+				> -->
 			</div>
 		</nav>
 	</div>

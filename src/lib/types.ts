@@ -24,12 +24,13 @@ export type errorPage = {
 export type projectPage = {
 	title: string;
 	subtitle: string;
-}
+	date: string;
+};
 
 export type pageTypes = {
 	index: indexPage;
 	'404': errorPage;
-	'projects': projectPage;
+	projects: projectPage;
 };
 
 export type misc = {
@@ -44,7 +45,9 @@ export type misc = {
 	nav: {
 		link: string;
 		label: string;
-	}[]
+	}[];
+	home: string;
+	content: string;
 };
 
 export type lang = 'sv' | 'en';

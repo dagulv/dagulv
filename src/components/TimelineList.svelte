@@ -4,14 +4,14 @@
 	import type { timelineItem } from '$lib/types';
 	import { DateTime } from 'luxon';
 
-	let { items = [] }: { items: timelineItem[] } = $props();
+	let { items = [], class: className }: { items: timelineItem[]; class?: string } = $props();
 	// item.from?.toFormat('MMMM yyyy') ||
 	// item.to?.toFormat('MMMM yyyy') ??
 	const misc = getMiscContext();
 	const lang = getLangContext();
 </script>
 
-<ol class="flex flex-col gap-8 pl-px">
+<ol class={['flex flex-col gap-8 p-0 pl-px', className]}>
 	{#each items as item}
 		{@const from = DateTime.fromISO(item.from).setLocale(lang)}
 		{@const to =
