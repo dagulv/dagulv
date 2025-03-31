@@ -15,8 +15,8 @@
 	<nav
 		class="col-1 top-32 left-0 col-start-1 col-end-1 row-span-2 flex h-max flex-col gap-16 md:sticky"
 	>
-		<a class="flex items-center gap-1" href="/">
-			<ArrowUpLeft class="text-gold-500" />
+		<a class="label flex items-center gap-1" href="/">
+			<ArrowUpLeft size="16" class="text-gold-700" />
 			{misc.home}
 		</a>
 		<div class="hidden md:block">
@@ -32,6 +32,7 @@
 	<Header
 		title={data.page.title}
 		subtitle={new Date(data.page.date).toLocaleString('sv-SE', {
+			day: 'numeric',
 			year: 'numeric',
 			month: 'long'
 		})}

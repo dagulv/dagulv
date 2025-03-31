@@ -41,6 +41,8 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.1.1",
-		"@icons-pack/svelte-simple-icons": "^4.0.2"
+		"@icons-pack/svelte-simple-icons": "^4.0.2",
+		"markdown-it": "^14.1.0",
+		"markdown-it-anchor": "^9.2.0"
 	}
 }

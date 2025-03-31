@@ -1,14 +1,13 @@
 import type { misc as miscType, lang, pageTypes } from '$lib/types';
 import type { LayoutServerLoad } from './$types';
-import { defaultLang } from '$lib/constants';
 import { error } from '@sveltejs/kit';
 import { PageError } from '$lib/error';
 import { slugs } from '$lib/api';
 
-export const load: LayoutServerLoad = async ({ params, url }) => {
-	const lang: lang = params.lang || defaultLang;
+export const load: LayoutServerLoad = async ({ locals, url }) => {
+	const lang = locals.lang;
+
 	const { default: misc }: { default: miscType } = await import(`$db/${lang}/misc.json`);
-	console.log(params);
 
 	try {
 		if (!(await validPage(lang, url.pathname))) {

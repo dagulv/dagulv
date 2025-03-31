@@ -12,7 +12,7 @@
 				href={item.link}
 				class="animate group border-gold-600 bg-gold-800 flex flex-col gap-2 rounded-xs border px-4 py-3 transition"
 			>
-				<p class="flex items-center gap-1 text-base font-bold group-hover:underline">
+				<p class="m-0 flex items-center gap-1 p-0 text-base font-bold group-hover:underline">
 					{item.title}
 					<ChevronRight
 						size="16"

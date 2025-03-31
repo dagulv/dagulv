@@ -15,14 +15,14 @@
 
 		const normalizedSlug = slugs[path];
 
-		const langs: Record<string, string> = [];
+		let langs: Record<string, string>[] = [];
 
 		for (const slug of Object.entries(slugs)) {
 			if (slug[1] !== normalizedSlug) {
 				continue;
 			}
 
-			const currLang = otherLangs.find((lang) => slug[0].startsWith(`/${lang}/`));
+			const currLang = otherLangs.find((lang) => slug[0].split('/')[1] === lang);
 
 			if (typeof currLang !== 'string') {
 				langs.push({ [defaultLang]: slug[0] });
@@ -37,6 +37,7 @@
 	});
 
 	const currLang = getLangContext();
+	$inspect(currLang);
 </script>
 
 <header class={['flex justify-center', className]}>
@@ -47,14 +48,19 @@
 		</div>
 
 		<nav>
-			<div class="text-gold-500 flex gap-0.5">
-				{#each langs as l}
+			<ul class="text-gold-500 flex gap-0.5">
+				{#each langs as l, i}
 					{@const [lang, link] = Object.entries(l)[0]}
-					<a
-						data-sveltekit-reload
-						class={['cursor-pointer hover:underline', currLang === lang && 'underline']}
-						href={link}>{lang}</a
-					>
+					<li class="contents">
+						<a
+							data-sveltekit-reload
+							class={['cursor-pointer uppercase hover:underline', currLang === lang && 'underline']}
+							href={link}>{lang}</a
+						>
+					</li>
+					{#if i < langs.length - 1}
+						<span>/</span>
+					{/if}
 				{/each}
 				<!-- <a
 					data-sveltekit-reload
@@ -67,7 +73,7 @@
 					class={['cursor-pointer hover:underline', lang === 'en' && 'underline']}
 					href={en}>EN</a
 				> -->
-			</div>
+			</ul>
 		</nav>
 	</div>
 </header>

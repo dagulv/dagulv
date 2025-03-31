@@ -66,6 +66,8 @@ export type postItem = {
 	link?: string;
 };
 
+export type postPage = { html: string; toc: toc[] };
+
 export type iconOption = {
 	icon: string | typeof Icon | SiComponentType;
 	label: string;
@@ -74,4 +76,10 @@ export type iconOption = {
 export type option = {
 	label: string;
 	value: string;
+};
+
+export type toc = {
+	label: string;
+	value: string;
+	indent: number;
 };

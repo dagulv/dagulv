@@ -3,7 +3,7 @@ import type { misc, lang } from './types';
 
 const miscKey = Symbol('misc');
 
-export function setMiscContext(misc: misc) {
+export function setMiscContext(misc?: misc) {
 	setContext(miscKey, misc);
 }
 

@@ -1,6 +1,6 @@
-import type { PageServerParentData } from '../routes/[[lang=lang]]/$types';
+import type { PageServerParentData } from './$types';
 import { defaultLang } from './constants';
-import type { pageTypes } from './types';
+import type { pageTypes, postPage, toc } from './types';
 
 // export async function getPage<T extends keyof pageTypes>(
 // 	lang: lang,
@@ -19,7 +19,7 @@ import type { pageTypes } from './types';
 // 	throw new PageError(pageContent);
 // }
 
-const db = import.meta.glob("$db/**/*.*", { eager: true })
+const db = import.meta.glob('$db/**/*.*', { eager: true });
 
 export async function getPage<T extends keyof pageTypes>(
 	parent: () => Promise<PageServerParentData>,
@@ -31,28 +31,62 @@ export async function getPage<T extends keyof pageTypes>(
 
 	const lang = data.lang ?? defaultLang;
 
-	let path = `/src/db/${lang}/${slug}.${ext}`
+	let path = `/src/db/${lang}/${slug}.${ext}`;
 
-	if(file.length > 0) {
+	if (file.length > 0) {
 		path = `/src/db/${lang}/${slug}/${file.join('/')}.${ext}`;
 	}
-	
-	if(!db[path]) {
-		throw new Error("not found");
+
+	if (!db[path]) {
+		throw new Error('not found');
 	}
-	
-	const module = await db[path];;
-	
-	if(ext === "md") {
-		return module as { html: string };
+
+	const module = await db[path];
+
+	if (ext === 'md') {
+		const parser = new DOMParser();
+		const doc = parser.parseFromString((module as { html: string }).html, 'text/html');
+		const headings = doc.querySelectorAll('h1, h2, h3, h4, h5, h6');
+		const toc: toc[] = [];
+
+		for (const heading of headings) {
+			if (heading.id) {
+				const level = parseInt(heading.tagName[1]);
+				toc.push({
+					label: heading.textContent?.trim() ?? '',
+					value: heading.id,
+					indent: level
+				});
+			}
+		}
+
+		return { html: (module as postPage).html, toc: toc } as postPage;
 	}
-	
+
 	return module as pageTypes[T];
 }
 
+// export function getTOC(md: string): option[] {
+// 		const lines = mdString.split("\n");
+// 		const toc = [];
+
+// 		lines.forEach(line => {
+// 			const match = line.match(/^(#{1,6})\s+(.+?)(?:\s+\{#(.+?)\})?$/); // Match headings
+// 			if (match) {
+// 				const level = match[1].length; // Number of `#` determines level
+// 				const text = match[2].trim();
+// 				const id = match[3] || text.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, ""); // Auto-generate ID if missing
+
+// 				toc.push({ level, text, id });
+// 			}
+// 		});
+
+// 	return [];
+// }
+
 export const slugs: Record<string, string> = {
 	'/': '/',
-	'/en': '/en',
+	'/en': '/',
 
 	'/projekt/designstudion': '/projects/the-design-studio',
 	'/en/projects/the-design-studio': '/projects/the-design-studio',

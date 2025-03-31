@@ -1,6 +1,6 @@
 // See https://svelte.dev/docs/kit/types#app.d.ts
 
-import type { pageTypes } from '$lib/types';
+import type { lang, pageTypes } from '$lib/types';
 
 // for information about these interfaces
 declare global {
@@ -10,6 +10,7 @@ declare global {
 		}
 		interface Locals {
 			error: boolean;
+			lang: lang;
 		}
 		// interface PageData {}
 		// interface PageState {}
