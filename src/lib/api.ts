@@ -1,6 +1,6 @@
 import type { PageServerParentData } from './$types';
 import { defaultLang } from './constants';
-import type { pageTypes, postPage, toc } from './types';
+import type { pageTypes, postPage } from './types';
 
 // export async function getPage<T extends keyof pageTypes>(
 // 	lang: lang,
@@ -21,11 +21,11 @@ import type { pageTypes, postPage, toc } from './types';
 
 const db = import.meta.glob('$db/**/*.*', { eager: true });
 
-export async function getPage<T extends keyof pageTypes>(
+async function getContent<T extends keyof pageTypes>(
 	parent: () => Promise<PageServerParentData>,
 	ext: 'json' | 'md',
 	slug: T,
-	...file: string[]
+	files: string[]
 ) {
 	const data = await parent();
 
@@ -33,37 +33,45 @@ export async function getPage<T extends keyof pageTypes>(
 
 	let path = `/src/db/${lang}/${slug}.${ext}`;
 
-	if (file.length > 0) {
-		path = `/src/db/${lang}/${slug}/${file.join('/')}.${ext}`;
+	if (files.length > 0) {
+		path = `/src/db/${lang}/${slug}/${files.join('/')}.${ext}`;
 	}
 
 	if (!db[path]) {
 		throw new Error('not found');
 	}
 
-	const module = await db[path];
+	return (await db[path]) as pageTypes[T] | postPage;
+}
 
-	if (ext === 'md') {
-		const parser = new DOMParser();
-		const doc = parser.parseFromString((module as { html: string }).html, 'text/html');
-		const headings = doc.querySelectorAll('h1, h2, h3, h4, h5, h6');
-		const toc: toc[] = [];
+export async function getPost<T extends keyof pageTypes>(
+	parent: () => Promise<PageServerParentData>,
+	slug: T,
+	...files: string[]
+) {
+	// const parser = new DOMParser();
+	// const doc = parser.parseFromString((module as { html: string }).html, 'text/html');
+	// const headings = doc.querySelectorAll('h1, h2, h3, h4, h5, h6');
+	// const toc: toc[] = [];
+	// for (const heading of headings) {
+	// 	if (heading.id) {
+	// 		const level = parseInt(heading.tagName[1]);
+	// 		toc.push({
+	// 			label: heading.textContent?.trim() ?? '',
+	// 			value: heading.id,
+	// 			indent: level
+	// 		});
+	// 	}
+	// }
+	return (await getContent(parent, 'md', slug, files)) as postPage;
+}
 
-		for (const heading of headings) {
-			if (heading.id) {
-				const level = parseInt(heading.tagName[1]);
-				toc.push({
-					label: heading.textContent?.trim() ?? '',
-					value: heading.id,
-					indent: level
-				});
-			}
-		}
-
-		return { html: (module as postPage).html, toc: toc } as postPage;
-	}
-
-	return module as pageTypes[T];
+export async function getPage<T extends keyof pageTypes>(
+	parent: () => Promise<PageServerParentData>,
+	slug: T,
+	...files: string[]
+) {
+	return (await getContent(parent, 'json', slug, files)) as pageTypes[T];
 }
 
 // export function getTOC(md: string): option[] {

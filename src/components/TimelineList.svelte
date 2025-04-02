@@ -30,14 +30,14 @@
 
 				<div class="flex w-full flex-wrap-reverse items-center justify-between gap-8 gap-y-0">
 					<div class="flex flex-col gap-0">
-						<p class="text-xl font-bold">{item.title}</p>
+						<p class="m-0 text-xl font-bold">{item.title}</p>
 						<span class="text-gold-700 text-sm">{item.description}</span>
 					</div>
 
 					<div>
 						<p
 							class={[
-								'text-gold-500 flex items-center gap-1 text-sm',
+								'text-gold-500 m-0 flex items-center gap-1 text-sm',
 								!item.to &&
 									'after:ml-1 after:h-1.5 after:w-1.5 after:rounded-full after:bg-green-600'
 							]}

@@ -7,16 +7,7 @@
     "projects": "Projects",
     "articles": "Articles",
     "today": "Today",
-    "nav": [
-        {
-            "link": "https://github.com/",
-            "label": "Github"
-        },
-        {
-            "link": "https://linkedin.com/",
-            "label": "Linkedin"
-        }
-    ],
+    "nav": [],
     "home": "Home",
     "content": "Content"
 }

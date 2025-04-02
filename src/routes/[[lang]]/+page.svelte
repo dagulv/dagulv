@@ -31,7 +31,7 @@
 
 	<main class="col-start-2 mb-16 flex flex-col items-center gap-20 *:w-full">
 		<div class="">
-			<p>{data.page.intro}</p>
+			<p class="m-0">{data.page.intro}</p>
 		</div>
 		<div class=" flex flex-wrap items-start gap-4 gap-y-20">
 			<div class="max-w-80 min-w-[min(100%,calc(var(--spacing)*64))] flex-1">
@@ -45,7 +45,7 @@
 		</div>
 		<div class="">
 			<h2 class="label animate">{misc.today}</h2>
-			<p class="animate">{data.page.content}</p>
+			<p class="animate m-0">{data.page.content}</p>
 		</div>
 		<div class="">
 			<h2 class="label animate">{misc.experience}</h2>

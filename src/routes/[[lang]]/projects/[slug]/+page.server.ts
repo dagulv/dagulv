@@ -1,14 +1,8 @@
-import { getPage } from '$lib/api';
-import type { postPage } from '$lib/types';
+import { getPage, getPost } from '$lib/api';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ parent, params }) => {
-	const page = await getPage(parent, 'json', 'projects', params.slug, 'index');
-	const post = (await getPage(parent, 'md', 'projects', params.slug, 'index')) as postPage;
-	// const page = await getPage(parent, 'json', 'index');
-
-	// const toc = getTOC((content as { html: string }).html);
-	console.log(post.toc);
-
-	return { page, content: post.html, toc: post.toc };
+	const page = await getPage(parent, 'projects', params.slug, 'index');
+	const post = await getPost(parent, 'projects', params.slug, 'index');
+	return { page, content: post.html };
 };

@@ -25,6 +25,7 @@ export type projectPage = {
 	title: string;
 	subtitle: string;
 	date: string;
+	headings: option[];
 };
 
 export type pageTypes = {
@@ -66,7 +67,7 @@ export type postItem = {
 	link?: string;
 };
 
-export type postPage = { html: string; toc: toc[] };
+export type postPage = { html: string };
 
 export type iconOption = {
 	icon: string | typeof Icon | SiComponentType;

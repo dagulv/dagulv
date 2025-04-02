@@ -21,10 +21,12 @@
 		</a>
 		<div class="hidden md:block">
 			<h3 class="label">{misc.content}</h3>
-			<ul class="text-gold-500 list-none p-0 text-sm leading-6">
-				<li>Test 1</li>
-				<li>Test 2</li>
-				<li>Test 3</li>
+			<ul class="text-gold-500 flex list-none flex-col gap-0.5 p-0 text-sm leading-6">
+				{#each data.page.headings as heading}
+					<li class="contents">
+						<a href={`#${heading.value}`}>{heading.label}</a>
+					</li>
+				{/each}
 			</ul>
 		</div>
 	</nav>
@@ -40,6 +42,6 @@
 	/>
 
 	<div class="col-start-2 col-end-2">
-		{@html data.content.html}
+		{@html data.content}
 	</div>
 </main>

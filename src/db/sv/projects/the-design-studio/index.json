@@ -1,5 +1,15 @@
 {
     "title": "Designstudion",
     "subtitle": "3D-viewer",
-    "date": "2025-03-23"
+    "date": "2025-03-23",
+    "headings": [
+        {
+            "value": "viewer",
+            "label": "Viewer"
+        },
+        {
+            "value": "backend",
+            "label": "Backend"
+        }
+    ]
 }
