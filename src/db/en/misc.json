@@ -7,7 +7,19 @@
     "projects": "Projects",
     "articles": "Articles",
     "today": "Today",
-    "nav": [],
+    "nav": [
+        {
+            "label": "CV",
+            "link": "/cv_dag_ulvsback_fullstack_developer_2025_en.pdf"
+        }
+    ],
     "home": "Home",
-    "content": "Content"
+    "content": "Content",
+    "resume": {
+        "text": "Read my resume ",
+        "link": {
+            "text": "here",
+            "href": "/cv_dag_ulvsback_fullstack_developer_2025_en.pdf"
+        }
+    }
 }

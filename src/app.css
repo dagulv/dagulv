@@ -55,6 +55,10 @@
 }
 
 @layer base {
+    :root {
+        --sidebar-width: calc(clamp(var(--spacing) * 16, 20vw, var(--spacing) * 48));
+    }
+
     html {
         height: 100%;
         box-sizing: border-box;
@@ -108,7 +112,7 @@
 }
 
 @layer utilities {
-    .container {
+    .wrapper {
         padding-left: 1rem;
         padding-right: 1rem;
 

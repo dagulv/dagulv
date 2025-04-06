@@ -37,7 +37,6 @@
 	});
 
 	const currLang = getLangContext();
-	$inspect(currLang);
 </script>
 
 <header class={['flex justify-center', className]}>

@@ -18,30 +18,33 @@
 	} from '@icons-pack/svelte-simple-icons';
 	import PostList from '../../components/PostList.svelte';
 	import Header from '$components/Header.svelte';
+	import Wrapper from '$components/Wrapper.svelte';
 
 	let { data }: PageProps = $props();
 
 	const misc = getMiscContext();
 </script>
 
-<div
-	class="container mt-4 mb-16 flex grid-cols-[calc(var(--spacing)*48)_1fr_calc(var(--spacing)*48)] flex-col gap-4 md:mt-32 md:grid"
->
+<Wrapper>
 	<Header title={data.page.name} subtitle={data.page.role} class="col-start-2 mb-8" />
 
-	<main class="col-start-2 mb-16 flex flex-col items-center gap-20 *:w-full">
+	<main class="col-start-2 mb-0 flex flex-col items-center gap-20 *:w-full">
 		<div class="">
 			<p class="m-0">{data.page.intro}</p>
 		</div>
 		<div class=" flex flex-wrap items-start gap-4 gap-y-20">
-			<div class="max-w-80 min-w-[min(100%,calc(var(--spacing)*64))] flex-1">
-				<h2 class="label animate">{misc.projects}</h2>
-				<PostList items={data.page.projects} />
-			</div>
-			<div class="max-w-80 min-w-[min(100%,calc(var(--spacing)*64))] flex-1">
-				<h2 class="label animate">{misc.articles}</h2>
-				<PostList items={data.page.articles} />
-			</div>
+			{#if data.page.projects.length > 0}
+				<div class="max-w-80 min-w-[min(100%,calc(var(--spacing)*64))] flex-1">
+					<h2 class="label animate">{misc.projects}</h2>
+					<PostList items={data.page.projects} />
+				</div>
+			{/if}
+			{#if data.page.articles.length > 0}
+				<div class="max-w-80 min-w-[min(100%,calc(var(--spacing)*64))] flex-1">
+					<h2 class="label animate">{misc.articles}</h2>
+					<PostList items={data.page.articles} />
+				</div>
+			{/if}
 		</div>
 		<div class="">
 			<h2 class="label animate">{misc.today}</h2>
@@ -107,4 +110,13 @@
 			/>
 		</div>
 	</main>
-</div>
+
+	<aside class="col-start-3 h-max">
+		<p class="m-0 inline text-sm italic">
+			{misc.resume.text}
+			<a target="_blank" href={misc.resume.link.href}>
+				<strong>{misc.resume.link.text}</strong>
+			</a>
+		</p>
+	</aside>
+</Wrapper>

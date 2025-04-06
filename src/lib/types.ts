@@ -1,7 +1,12 @@
 import type { Icon } from 'lucide-svelte';
-import type { SiComponentType } from '@icons-pack/svelte-simple-icons';
+import type { SiGithub } from '@icons-pack/svelte-simple-icons';
 
 type date = string;
+
+export type link = {
+	text: string;
+	href: string;
+};
 
 export type indexPage = {
 	name: string;
@@ -49,6 +54,10 @@ export type misc = {
 	}[];
 	home: string;
 	content: string;
+	resume: {
+		text: string;
+		link: link;
+	};
 };
 
 export type lang = 'sv' | 'en';
@@ -59,6 +68,7 @@ export type timelineItem = {
 	description: string;
 	from: date;
 	to: date | null;
+	background: string | undefined;
 };
 
 export type postItem = {
@@ -70,7 +80,7 @@ export type postItem = {
 export type postPage = { html: string };
 
 export type iconOption = {
-	icon: string | typeof Icon | SiComponentType;
+	icon: string | (typeof Icon | typeof SiGithub);
 	label: string;
 };
 

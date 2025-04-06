@@ -4,5 +4,45 @@
     "name": "Dag Ulvsbäck",
     "role": "Fullstack developer",
     "intro": "Creating systems. Building sophisticated programs & experiences on the web.",
-    "content": "I am currently a full-stack developer at the web agency Webbmaffian in Stockholm. My expertise lies in Go, JavaScript, PostgreSQL, Svelte, and PHP, which I work with daily. I am passionate about building high-quality systems, expanding my knowledge, and having fun while coding."
+    "content": "I am currently a full-stack developer at the web agency Webbmaffian in Stockholm. My expertise lies in Go, JavaScript, PostgreSQL, Svelte, and PHP, which I work with daily. I am passionate about building high-quality systems, expanding my knowledge, and having fun while coding.",
+    "articles": [],
+    "projects": [
+        {
+            "title": "The design studio",
+            "description": "3D-viewer for companies",
+            "link": "/projects/the-design-studio"
+        }
+    ],
+    "experience": [
+        {
+            "imgUrl": "/webmafia.svg",
+            "title": "The Web Mafia",
+            "description": "Fullstack developer",
+            "from": "2023-01-16",
+            "to": null
+        },
+        {
+            "imgUrl": "/smode.png",
+            "title": "Smode",
+            "description": "Web developer",
+            "from": "2022-06-22",
+            "to": "2023-10-22"
+        }
+    ],
+    "education": [
+        {
+            "imgUrl": "/iths.png",
+            "title": "ITHS",
+            "description": "Web development",
+            "from": "2021-07-26",
+            "to": "2023-05-26"
+        },
+        {
+            "imgUrl": "/kth.png",
+            "title": "KTH",
+            "description": "Real estate & finance",
+            "from": "2020-07-12",
+            "to": "2021-06-26"
+        }
+    ]
 }

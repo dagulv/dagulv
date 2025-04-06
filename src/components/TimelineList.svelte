@@ -22,9 +22,16 @@
 			<div class={['flex w-full items-center gap-4', !item.imgUrl && 'pl-14']}>
 				{#if item.imgUrl}
 					<span
+						style={item.background && `background-color: ${item.background};`}
 						class="bg-gold-100 outline-gold-400 flex aspect-square w-12 items-center justify-center rounded-full p-2 outline"
 					>
-						<img src={item.imgUrl} alt={item.title} width="48" height="48" />
+						<img
+							src={item.imgUrl}
+							alt={item.title}
+							width="48"
+							height="48"
+							class="aspect-square object-contain"
+						/>
 					</span>
 				{/if}
 
