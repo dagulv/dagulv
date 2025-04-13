@@ -5,11 +5,15 @@
     "headings": [
         {
             "value": "viewer",
-            "label": "Viewer"
+            "label": "Viewer-komponenten"
         },
         {
-            "value": "backend",
-            "label": "Backend"
+            "value": "multitenant",
+            "label": "Multitenant-arkitektur"
+        },
+        {
+            "value": "resultat",
+            "label": "Resultat"
         }
     ]
 }

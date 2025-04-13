@@ -1,0 +1,19 @@
+{
+    "title": "The design studio",
+    "subtitle": "3D-configurator",
+    "date": "2025-04-13",
+    "headings": [
+        {
+            "value": "viewer",
+            "label": "Viewer Component"
+        },
+        {
+            "value": "multitenant",
+            "label": "Multitenant Architecture"
+        },
+        {
+            "value": "results",
+            "label": "Results"
+        }
+    ]
+}
