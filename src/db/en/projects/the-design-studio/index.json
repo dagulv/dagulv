@@ -4,11 +4,11 @@
     "date": "2025-04-13",
     "headings": [
         {
-            "value": "viewer",
+            "value": "viewer-component",
             "label": "Viewer Component"
         },
         {
-            "value": "multitenant",
+            "value": "multitenant-architecture",
             "label": "Multitenant Architecture"
         },
         {

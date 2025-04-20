@@ -63,48 +63,24 @@
 			<CapsuleList
 				items={[
 					{
-						icon: SiGithub,
-						label: 'Github'
-					},
-					{
 						icon: SiGo,
 						label: 'Go'
 					},
 					{
-						icon: SiSvelte,
-						label: 'Svelte'
+						icon: SiPostgresql,
+						label: 'Postgresql'
 					},
 					{
 						icon: SiJavascript,
 						label: 'Javascript'
 					},
 					{
-						icon: SiTypescript,
-						label: 'Typescript'
+						icon: SiSvelte,
+						label: 'Svelte'
 					},
 					{
-						icon: SiPhp,
-						label: 'PHP'
-					},
-					{
-						icon: SiWordpress,
-						label: 'Wordpress'
-					},
-					{
-						icon: SiThreedotjs,
-						label: 'Three.js'
-					},
-					{
-						icon: SiFlutter,
-						label: 'Flutter'
-					},
-					{
-						icon: SiFigma,
-						label: 'Figma'
-					},
-					{
-						icon: SiPostgresql,
-						label: 'Postgresql'
+						icon: SiGithub,
+						label: 'Github'
 					}
 				]}
 			/>

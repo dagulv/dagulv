@@ -6,8 +6,8 @@
     "articles": [],
     "projects": [
         {
-            "title": "The design studio",
-            "description": "3D-viewer for companies",
+            "title": "The Design Studio",
+            "description": "A complete system for interactive 3D models",
             "link": "/en/projects/the-design-studio"
         }
     ],
