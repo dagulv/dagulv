@@ -17,7 +17,7 @@
 		{@const to =
 			typeof item.to === 'string' ? DateTime.fromISO(item.to).setLocale(lang) : misc.present}
 		<li
-			class="animate not-last:after:bg-gold-600 relative flex items-center justify-between after:absolute after:top-[calc(100%+0.35rem)] after:left-5.5 after:h-5 after:w-px after:-translate-x-1/2"
+			class="not-last:after:bg-gold-600 relative flex items-center justify-between after:absolute after:top-[calc(100%+0.35rem)] after:left-5.5 after:h-5 after:w-px after:-translate-x-1/2"
 		>
 			<div class={['flex w-full items-center gap-4', !item.imgUrl && 'pl-14']}>
 				{#if item.imgUrl}

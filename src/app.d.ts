@@ -6,6 +6,7 @@ import type { lang, pageTypes } from '$lib/types';
 declare global {
 	namespace App {
 		interface Error {
+			message: string;
 			page: pageTypes['404'];
 		}
 		interface Locals {

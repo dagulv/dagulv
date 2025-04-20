@@ -4,6 +4,7 @@
 	import Header from '$components/Header.svelte';
 	import { ArrowUpLeft } from 'lucide-svelte';
 	import Wrapper from '$components/Wrapper.svelte';
+	import { link } from '$lib/api.svelte';
 
 	let { data }: PageProps = $props();
 
@@ -13,7 +14,7 @@
 <Wrapper>
 	<aside class="col-1 top-32 left-0 col-start-1 col-end-1 row-span-2 h-max md:sticky">
 		<nav class="flex h-max flex-col gap-16">
-			<a class="label flex items-center gap-1" href="/">
+			<a class="label flex items-center gap-1" href={link('/')}>
 				<ArrowUpLeft size="16" class="text-gold-700" />
 				{misc.home}
 			</a>
@@ -44,8 +45,8 @@
 		{@html data.content}
 	</main>
 
-	<aside class="col-start-3 mt-24 ml-16 h-max">
-		<p class="m-0 inline text-sm italic">
+	<aside class="col-start-3 h-max">
+		<p class="m-0 mt-24 hidden text-sm italic md:inline">
 			{misc.resume.text}
 			<a target="_blank" href={misc.resume.link.href}>
 				<strong>{misc.resume.link.text}</strong>

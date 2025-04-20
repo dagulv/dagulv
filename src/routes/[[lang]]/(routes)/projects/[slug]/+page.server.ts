@@ -1,4 +1,4 @@
-import { getPage, getPost } from '$lib/api';
+import { getPage, getPost } from '$lib/api.svelte';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ parent, params }) => {

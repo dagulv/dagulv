@@ -1,5 +1,6 @@
 import { otherLangs } from '$lib/constants';
 import { defaultLang } from '$lib/constants';
+import type { pageTypes } from '$lib/types';
 import type { Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 
@@ -19,5 +20,17 @@ export const lang: Handle = async ({ event, resolve }) => {
 	});
 	return response;
 };
+
+/** @type {import('@sveltejs/kit').HandleServerError} */
+export async function handleError({ event }) {
+	const { default: pageContent }: { default: pageTypes['404'] } = await import(
+		`$db/${event.locals.lang}/404.json`
+	);
+
+	return {
+		message: 'error',
+		page: pageContent
+	};
+}
 
 export const handle = sequence(lang);

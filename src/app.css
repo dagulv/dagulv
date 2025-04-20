@@ -56,7 +56,8 @@
 
 @layer base {
     :root {
-        --sidebar-width: calc(clamp(var(--spacing) * 16, 20vw, var(--spacing) * 48));
+        --sidebar-width: clamp(calc(var(--spacing) * 16), 12vw, calc(var(--spacing) * 48));
+        --sidebar-gap: clamp(calc(var(--spacing) * 4), 4vw, calc(var(--spacing) * 12));
     }
 
     html {
@@ -107,7 +108,7 @@
     }
 
     a {
-        @apply hover:text-gold-300 transition;
+        @apply hover:text-gold-300 transition hover:underline;
     }
 }
 

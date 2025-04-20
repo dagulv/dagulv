@@ -1,10 +1,9 @@
 <script>
-	import { page } from '$app/state';
-	import Footer from '$components/Footer.svelte';
+	import '../app.css';
+	import '@fontsource-variable/inter';
 	import { defaultLang } from '$lib/constants';
 	import { setLangContext, setMiscContext } from '$lib/contexts';
-	import '../../app.css';
-	import '@fontsource-variable/inter';
+	import Footer from '$components/Footer.svelte';
 
 	let { data, children } = $props();
 

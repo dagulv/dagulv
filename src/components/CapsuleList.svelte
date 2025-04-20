@@ -4,7 +4,7 @@
 	let { items = [] }: { items: iconOption[] } = $props();
 </script>
 
-<ul class="animate m-0 flex flex-wrap gap-1 p-0">
+<ul class="m-0 flex flex-wrap gap-1 p-0">
 	{#each items as item}
 		<li class="contents">
 			<span
@@ -13,7 +13,7 @@
 				{#if typeof item.icon === 'string'}
 					<img class="size-4" src={item.icon} alt={item.label} />
 				{:else}
-					<item.icon size={'16'} />
+					<item.icon size={16} />
 				{/if}
 				{item.label}
 			</span>

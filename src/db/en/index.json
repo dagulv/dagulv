@@ -1,8 +1,6 @@
 {
     "title": "",
     "description": "Portfolio of Dag Ulvsbäck, a full-stack web developer specializing in building scalable web applications using modern technologies. Explore my latest projects and get in touch.",
-    "name": "Dag Ulvsbäck",
-    "role": "Fullstack developer",
     "intro": "Creating systems. Building sophisticated programs & experiences on the web.",
     "content": "I am currently a full-stack developer at the web agency Webbmaffian in Stockholm. My expertise lies in Go, JavaScript, PostgreSQL, Svelte, and PHP, which I work with daily. I am passionate about building high-quality systems, expanding my knowledge, and having fun while coding.",
     "articles": [],
@@ -10,7 +8,7 @@
         {
             "title": "The design studio",
             "description": "3D-viewer for companies",
-            "link": "/projects/the-design-studio"
+            "link": "/en/projects/the-design-studio"
         }
     ],
     "experience": [
@@ -35,7 +33,8 @@
             "title": "ITHS",
             "description": "Web development",
             "from": "2021-07-26",
-            "to": "2023-05-26"
+            "to": "2023-05-26",
+            "background": "#161411"
         },
         {
             "imgUrl": "/kth.png",

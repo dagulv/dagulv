@@ -9,8 +9,6 @@ export type link = {
 };
 
 export type indexPage = {
-	name: string;
-	role: string;
 	intro: string;
 	content: string;
 	projects: postItem[];
@@ -41,6 +39,7 @@ export type pageTypes = {
 
 export type misc = {
 	name: string;
+	role: string;
 	present: string;
 	experience: string;
 	education: string;

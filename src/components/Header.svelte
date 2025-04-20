@@ -1,6 +1,10 @@
+<script module>
+	const languages = [defaultLang, ...otherLangs];
+</script>
+
 <script lang="ts">
 	import { page } from '$app/state';
-	import { slugs } from '$lib/api';
+	import { slugs } from '$lib/api.svelte';
 	import { defaultLang, otherLangs } from '$lib/constants';
 	import { getLangContext } from '$lib/contexts';
 
@@ -10,10 +14,33 @@
 		class: className
 	}: { title: string; subtitle: string; class?: string } = $props();
 
-	const langs = $derived.by(() => {
+	const langsPaths = $derived.by(() => {
 		let path = page.url.pathname;
 
 		const normalizedSlug = slugs[path];
+
+		if (!normalizedSlug) {
+			for (const l of otherLangs) {
+				if (path.startsWith('/' + l + '/')) {
+					path = path.replace('/' + l, '');
+					break;
+				}
+			}
+
+			return languages.map((l) => {
+				let langPath = '';
+
+				if (l !== defaultLang) {
+					langPath += '/' + l;
+				}
+
+				langPath += path;
+
+				return {
+					[l]: langPath
+				};
+			});
+		}
 
 		let langs: Record<string, string>[] = [];
 
@@ -48,7 +75,7 @@
 
 		<nav>
 			<ul class="text-gold-500 flex gap-0.5">
-				{#each langs as l, i}
+				{#each langsPaths as l, i}
 					{@const [lang, link] = Object.entries(l)[0]}
 					<li class="contents">
 						<a
@@ -57,21 +84,10 @@
 							href={link}>{lang}</a
 						>
 					</li>
-					{#if i < langs.length - 1}
+					{#if i < langsPaths.length - 1}
 						<span>/</span>
 					{/if}
 				{/each}
-				<!-- <a
-					data-sveltekit-reload
-					class={['cursor-pointer hover:underline', lang === 'sv' && 'underline']}
-					href={sv}>SV</a
-				>
-				<span>/</span>
-				<a
-					data-sveltekit-reload
-					class={['cursor-pointer hover:underline', lang === 'en' && 'underline']}
-					href={en}>EN</a
-				> -->
 			</ul>
 		</nav>
 	</div>
