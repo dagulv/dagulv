@@ -27,7 +27,11 @@ jobs:
         uses: ayeressian/bunnycdn-storage-deploy@v2.2.5
         with:
           source: "prod"
+          storageEndpoint: "${{ secrets.STORAGE_ENDPOINT }}"
           storageZoneName: "${{ secrets.STORAGE_NAME }}"
           storagePassword: "${{ secrets.STORAGE_PASSWORD }}"
+          accessKey: "${{ secrets.STORAGE_KEY }}"
+          pullZoneId: "${{ secrets.ZONE_ID }}"
           upload: "true"
           remove: "true"
+          purgePullZone: "true"
