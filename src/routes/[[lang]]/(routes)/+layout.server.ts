@@ -18,5 +18,3 @@ export const load: LayoutServerLoad = async ({ url, parent }) => {
 
 	return;
 };
-
-export const prerender = true;

@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import { page } from '$app/state';
-	import { slugs } from '$lib/api.svelte';
+	import slugs from '$lib/slugs.json';
 	import { defaultLang, otherLangs } from '$lib/constants';
 	import { getLangContext } from '$lib/contexts';
 
@@ -17,7 +17,7 @@
 	const langsPaths = $derived.by(() => {
 		let path = page.url.pathname;
 
-		const normalizedSlug = slugs[path];
+		const normalizedSlug = slugs[path as keyof typeof slugs];
 
 		if (!normalizedSlug) {
 			for (const l of otherLangs) {

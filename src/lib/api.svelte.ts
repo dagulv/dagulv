@@ -1,49 +1,62 @@
-import { page } from '$app/state';
 import type { PageServerParentData } from './$types';
 import { defaultLang, otherLangs } from './constants';
 import { getLangContext } from './contexts';
 import { PageError } from './error';
 import type { lang, pageTypes, postPage } from './types';
+import slugs from './slugs.json';
 
 const db = import.meta.glob('$db/**/*.*', { eager: true });
 
-async function getContent<T extends keyof pageTypes>(
+async function getContent(
 	parent: () => Promise<PageServerParentData>,
 	ext: 'json' | 'md',
-	slug: T,
-	files: string[]
+	paths: string[]
 ) {
 	const data = await parent();
 
-	const lang = data.lang ?? defaultLang;
+	const lang: lang = data.lang ?? defaultLang;
 
-	let path = `/src/db/${lang}/${slug}.${ext}`;
+	const path = '/' + paths.join('/');
 
-	if (files.length > 0) {
-		path = `/src/db/${lang}/${slug}/${files.join('/')}.${ext}`;
+	let dbPath = '';
+
+	for (const [key, value] of Object.entries(slugs)) {
+		const isOtherLang = otherLangs.includes(lang);
+
+		if (value === path && key.startsWith(`/${isOtherLang ? lang : ''}`)) {
+			dbPath = '/src/db';
+
+			if (!isOtherLang) {
+				dbPath += `/${lang}`;
+			}
+
+			dbPath += key;
+
+			if (!dbPath.endsWith('/')) {
+				dbPath += '/';
+			}
+
+			dbPath += `index.${ext}`;
+			break;
+		}
 	}
 
-	if (!db[path]) {
+	if (!db[dbPath]) {
 		throw new Error('not found');
 	}
 
-	return (await db[path]) as pageTypes[T] | postPage;
+	return db[dbPath];
 }
 
-export async function getPost<T extends keyof pageTypes>(
-	parent: () => Promise<PageServerParentData>,
-	slug: T,
-	...files: string[]
-) {
-	return (await getContent(parent, 'md', slug, files)) as postPage;
+export async function getPost(parent: () => Promise<PageServerParentData>, ...paths: string[]) {
+	return (await getContent(parent, 'md', paths)) as postPage;
 }
 
 export async function getPage<T extends keyof pageTypes>(
 	parent: () => Promise<PageServerParentData>,
-	slug: T,
-	...files: string[]
+	...paths: string[]
 ) {
-	return (await getContent(parent, 'json', slug, files)) as pageTypes[T];
+	return (await getContent(parent, 'json', paths)) as pageTypes[T];
 }
 
 export async function validPage(lang: lang, path: string): Promise<boolean> {
@@ -56,17 +69,6 @@ export async function validPage(lang: lang, path: string): Promise<boolean> {
 	);
 	throw new PageError(pageContent);
 }
-
-export const slugs: Record<string, string> = {
-	'/': '/',
-	'/en': '/',
-
-	'/projekt/designstudion': '/projects/the-design-studio',
-	'/en/projects/the-design-studio': '/projects/the-design-studio',
-
-	'/projekt/ioffice': '/projects/ioffice',
-	'/en/projects/ioffice': '/projects/ioffice'
-};
 
 export function link(href: string): string {
 	for (const l of otherLangs) {
