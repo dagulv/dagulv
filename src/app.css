@@ -107,8 +107,8 @@
         @apply rounded-xs
     }
 
-    a {
-        @apply hover:text-gold-300 transition hover:underline;
+    .blog main a {
+        @apply hover:text-gold-500 transition no-underline border-b-gold-500 border-b;
     }
 }
 
@@ -144,5 +144,9 @@
         @media screen and (prefers-reduced-motion: reduce) {
             animation: none !important;
         }
+    }
+
+    .a {
+        @apply hover:text-gold-500 transition no-underline border-b-gold-500 border-b;
     }
 }

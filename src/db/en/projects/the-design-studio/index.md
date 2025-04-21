@@ -1,6 +1,6 @@
 # The Design Studio - A complete system for interactive 3D models
 
-The Design Studio is a complete system for 3D configurators, designed for companies to upload and edit interactive 3D models on the web. On behalf of the design studio Studio3D, we developed a platform that helps clients present their 3D models online. The Design Studio offers a range of tools for managing model appearance, environments, interactivity, AR, and more.
+The Design Studio is a complete system for 3D configurators, designed for companies to upload and edit interactive 3D models on the web. On behalf of the design studio [Studio3D](https://studio3d.se/produkt/tjanster/designstudion/), we developed a platform that helps clients present their 3D models online. The Design Studio offers a range of tools for managing model appearance, environments, interactivity, AR, and more.
 
 Technologies used in the project include PostgreSQL, Go, JavaScript, Svelte, and Three.js.
 

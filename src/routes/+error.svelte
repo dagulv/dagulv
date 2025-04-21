@@ -35,7 +35,7 @@
 		<aside class="col-start-3 h-max">
 			<p class="m-0 mt-24 hidden text-sm italic md:inline">
 				{misc.resume.text}
-				<a target="_blank" href={misc.resume.link.href}>
+				<a target="_blank" href={misc.resume.link.href} class="underline">
 					<strong>{misc.resume.link.text}</strong>
 				</a>
 			</p>

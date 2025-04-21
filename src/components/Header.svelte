@@ -80,7 +80,10 @@
 					<li class="contents">
 						<a
 							data-sveltekit-reload
-							class={['cursor-pointer uppercase hover:underline', currLang === lang && 'underline']}
+							class={[
+								'text-gold-300 cursor-pointer border-none uppercase no-underline',
+								currLang === lang && 'underline'
+							]}
 							href={link}>{lang}</a
 						>
 					</li>

@@ -11,7 +11,7 @@
 	const misc = getMiscContext();
 </script>
 
-<Wrapper>
+<Wrapper class="blog">
 	<aside class="col-1 top-32 left-0 col-start-1 col-end-1 row-span-2 h-max md:sticky">
 		<nav class="flex h-max flex-col gap-16">
 			<a class="label flex items-center gap-1" href={link('/')}>
@@ -48,7 +48,7 @@
 	<aside class="col-start-3 h-max">
 		<p class="m-0 mt-24 hidden text-sm italic md:inline">
 			{misc.resume.text}
-			<a target="_blank" href={misc.resume.link.href}>
+			<a target="_blank" href={misc.resume.link.href} class="a">
 				<strong>{misc.resume.link.text}</strong>
 			</a>
 		</p>

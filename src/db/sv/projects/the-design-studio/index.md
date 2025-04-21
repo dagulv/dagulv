@@ -1,6 +1,6 @@
 # Designstudion – Ett komplett system för interaktiva 3D-modeller
 
-Designstudion är ett komplett system för 3D-konfiguratorer, utvecklat för företag som vill ladda upp och redigera interaktiva 3D-modeller direkt på webben. På uppdrag av designstudion Studio3D har vi skapat en plattform som gör det enkelt för deras kunder att presentera och anpassa 3D-modeller online.
+Designstudion är ett komplett system för 3D-konfiguratorer, utvecklat för företag som vill ladda upp och redigera interaktiva 3D-modeller direkt på webben. På uppdrag av designstudion [Studio3D](https://studio3d.se/produkt/tjanster/designstudion/) har vi skapat en plattform som gör det enkelt för deras kunder att presentera och anpassa 3D-modeller online.
 
 Systemet erbjuder en mängd verktyg för att hantera modellernas utseende, omgivningar, interaktivitet, AR-stöd och mycket mer.
 
