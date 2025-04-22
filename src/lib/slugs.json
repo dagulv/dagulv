@@ -1,7 +1,7 @@
 {
 	"/": "/",
-	"/en": "/",
+	"/en/": "/",
 
-	"/projekt/designstudion": "/projects/the-design-studio",
-	"/en/projects/the-design-studio": "/projects/the-design-studio"
+	"/projekt/designstudion/": "/projects/the-design-studio",
+	"/en/projects/the-design-studio/": "/projects/the-design-studio"
 }

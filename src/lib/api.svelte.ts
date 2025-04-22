@@ -70,7 +70,15 @@ export async function validPage(lang: lang, path: string): Promise<boolean> {
 	throw new PageError(pageContent);
 }
 
-export function link(href: string): string {
+export function link(href: string | undefined): string {
+	if (!href) {
+		return href ?? '';
+	}
+
+	if (!href.endsWith('/')) {
+		href += '/';
+	}
+
 	for (const l of otherLangs) {
 		if (href.startsWith(`/${l}/`)) {
 			return href;

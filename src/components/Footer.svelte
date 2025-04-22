@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { link } from '$lib/api.svelte';
 	import { getMiscContext } from '$lib/contexts';
 	import { SiGithub, SiLinkedin } from '@icons-pack/svelte-simple-icons';
 
@@ -10,7 +11,7 @@
 		<div
 			class="flex justify-between md:pr-[calc(var(--sidebar-width)+var(--sidebar-gap))] md:pl-[calc(var(--sidebar-width)+var(--sidebar-gap))]"
 		>
-			<a href="/" class="text-gold-700 text-sm">{misc.name}</a>
+			<a href={link('/')} class="text-gold-700 text-sm">{misc.name}</a>
 			<ul class="text-gold-700 m-0 flex gap-2 text-sm">
 				{#each misc.nav as item}
 					<li class="contents">

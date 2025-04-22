@@ -20,7 +20,8 @@ const config = {
 			'$components': 'src/components'
 		},
 		prerender: {
-			entries: Object.keys(slugs)
+			entries: Object.keys(slugs),
+			handleHttpError: 'warn'
 		}
 	}
 };
