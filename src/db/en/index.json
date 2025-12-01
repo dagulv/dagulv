@@ -24,18 +24,17 @@
             "title": "Smode",
             "description": "Web developer",
             "from": "2022-06-22",
-            "to": "2023-10-22"
+            "to": "2022-12-16"
+        },
+                {
+            "imgUrl": null,
+            "title": "Freelance web developer",
+            "description": "Web developer",
+            "from": "2021-06-27",
+            "to": "2022-06-22"
         }
     ],
     "education": [
-        {
-            "imgUrl": "/iths.png",
-            "title": "ITHS",
-            "description": "Web development",
-            "from": "2021-07-26",
-            "to": "2023-05-26",
-            "background": "#161411"
-        },
         {
             "imgUrl": "/kth.png",
             "title": "KTH",
