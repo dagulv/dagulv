@@ -19,12 +19,12 @@
 		<li
 			class="not-last:after:bg-gold-600 relative flex items-center justify-between after:absolute after:top-[calc(100%+0.35rem)] after:left-5.5 after:h-5 after:w-px after:-translate-x-1/2"
 		>
-			<div class={['flex w-full items-center gap-4', !item.imgUrl && 'pl-14']}>
-				{#if item.imgUrl}
-					<span
-						style={item.background && `background-color: ${item.background};`}
-						class="bg-gold-100 outline-gold-400 flex aspect-square w-12 items-center justify-center rounded-full p-2 outline"
-					>
+			<div class={['flex w-full items-center gap-4']}>
+				<span
+					style={item.background && `background-color: ${item.background};`}
+					class="bg-gold-100 outline-gold-400 flex aspect-square w-12 items-center justify-center rounded-full p-2 outline"
+				>
+					{#if item.imgUrl}
 						<img
 							src={item.imgUrl}
 							alt={item.title}
@@ -32,8 +32,8 @@
 							height="48"
 							class="aspect-square object-contain"
 						/>
-					</span>
-				{/if}
+					{/if}
+				</span>
 
 				<div class="flex w-full flex-wrap-reverse items-center justify-between gap-8 gap-y-0">
 					<div class="flex flex-col gap-0">
