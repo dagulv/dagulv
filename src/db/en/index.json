@@ -1,46 +1,46 @@
 {
-    "title": "",
-    "description": "Portfolio of Dag Ulvsbäck, a full-stack web developer specializing in building scalable web applications using modern technologies. Explore my latest projects and get in touch.",
-    "intro": "Creating systems. Building sophisticated programs & experiences on the web.",
-    "content": "I am currently a full-stack developer at the web agency Webbmaffian in Stockholm. My expertise lies in Go, JavaScript, PostgreSQL, Svelte, and PHP, which I work with daily. I am passionate about building high-quality systems, expanding my knowledge, and having fun while coding.",
-    "articles": [],
-    "projects": [
-        {
-            "title": "The Design Studio",
-            "description": "A complete system for interactive 3D models",
-            "link": "/en/projects/the-design-studio"
-        }
-    ],
-    "experience": [
-        {
-            "imgUrl": "/webmafia.svg",
-            "title": "The Web Mafia",
-            "description": "Fullstack developer",
-            "from": "2023-01-16",
-            "to": null
-        },
-        {
-            "imgUrl": "/smode.png",
-            "title": "Smode",
-            "description": "Web developer",
-            "from": "2022-06-22",
-            "to": "2022-12-16"
-        },
-                {
-            "imgUrl": null,
-            "title": "Freelance web developer",
-            "description": "Web developer",
-            "from": "2021-06-27",
-            "to": "2022-06-22"
-        }
-    ],
-    "education": [
-        {
-            "imgUrl": "/kth.png",
-            "title": "KTH",
-            "description": "Real estate & finance",
-            "from": "2020-07-12",
-            "to": "2021-06-26"
-        }
-    ]
+	"title": "",
+	"description": "Portfolio of Dag Ulvsbäck, a full-stack web developer specializing in building scalable web applications using modern technologies. Explore my latest projects and get in touch.",
+	"intro": "Creating systems. Building sophisticated programs & experiences on the web.",
+	"content": "I am currently a full-stack developer at the web agency Webbmaffian in Stockholm. My expertise lies in Go, JavaScript, PostgreSQL, Svelte, and PHP, which I work with daily. I am passionate about building high-quality systems, expanding my knowledge, and having fun while coding.",
+	"articles": [],
+	"projects": [
+		{
+			"title": "The Design Studio",
+			"description": "A complete system for interactive 3D models",
+			"link": "/en/projects/the-design-studio"
+		}
+	],
+	"experience": [
+		{
+			"imgUrl": "/assets/webmafia.svg",
+			"title": "The Web Mafia",
+			"description": "Fullstack developer",
+			"from": "2023-01-16",
+			"to": null
+		},
+		{
+			"imgUrl": "/assets/smode.png",
+			"title": "Smode",
+			"description": "Web developer",
+			"from": "2022-06-22",
+			"to": "2022-12-16"
+		},
+		{
+			"imgUrl": null,
+			"title": "Freelance web developer",
+			"description": "Web developer",
+			"from": "2021-06-27",
+			"to": "2022-06-22"
+		}
+	],
+	"education": [
+		{
+			"imgUrl": "/assets/kth.png",
+			"title": "KTH",
+			"description": "Real estate & finance",
+			"from": "2020-07-12",
+			"to": "2021-06-26"
+		}
+	]
 }

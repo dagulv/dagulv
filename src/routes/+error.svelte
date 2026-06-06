@@ -4,7 +4,7 @@
 	import Wrapper from '$components/Wrapper.svelte';
 	import { link } from '$lib/api.svelte';
 	import { getMiscContext } from '$lib/contexts';
-	import { ArrowUpLeft } from 'lucide-svelte';
+	import { ArrowUpLeft } from '@lucide/svelte';
 
 	const misc = getMiscContext();
 </script>

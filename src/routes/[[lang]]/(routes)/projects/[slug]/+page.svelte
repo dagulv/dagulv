@@ -2,7 +2,7 @@
 	import type { PageProps } from './$types';
 	import { getMiscContext } from '$lib/contexts';
 	import Header from '$components/Header.svelte';
-	import { ArrowUpLeft } from 'lucide-svelte';
+	import { ArrowUpLeft } from '@lucide/svelte';
 	import Wrapper from '$components/Wrapper.svelte';
 	import { link } from '$lib/api.svelte';
 

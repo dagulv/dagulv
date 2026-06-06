@@ -1,4 +1,4 @@
-import type { Icon } from 'lucide-svelte';
+import type { Icon } from '@lucide/svelte';
 import type { SiGithub } from '@icons-pack/svelte-simple-icons';
 
 type date = string;

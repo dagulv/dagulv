@@ -1,26 +1,26 @@
 {
-    "name": "Dag Ulvsbäck",
-    "role": "Fullstackutvecklare",
-    "present": "Nuvarande",
-    "experience": "Erfarenhet",
-    "education": "Utbildning",
-    "skills": "Tekniska kompetenser",
-    "projects": "Projekt",
-    "articles": "Artiklar",
-    "today": "Idag",
-    "nav": [
-        {
-            "label": "CV",
-            "link": "/cv_dag_ulvsback_fullstackutvecklare_2025.pdf"
-        }
-    ],
-    "home": "Hem",
-    "content": "Innehåll",
-    "resume": {
-        "text": "Läs mitt cv ",
-        "link": {
-            "text": "här",
-            "href": "/cv_dag_ulvsback_fullstackutvecklare_2025.pdf"
-        }
-    }
+	"name": "Dag Ulvsbäck",
+	"role": "Fullstackutvecklare",
+	"present": "Nuvarande",
+	"experience": "Erfarenhet",
+	"education": "Utbildning",
+	"skills": "Tekniska kompetenser",
+	"projects": "Projekt",
+	"articles": "Artiklar",
+	"today": "Idag",
+	"nav": [
+		{
+			"label": "CV",
+			"link": "/assets/cv_dag_ulvsback_fullstackutvecklare_2025.pdf"
+		}
+	],
+	"home": "Hem",
+	"content": "Innehåll",
+	"resume": {
+		"text": "Läs mitt cv ",
+		"link": {
+			"text": "här",
+			"href": "/assets/cv_dag_ulvsback_fullstackutvecklare_2025.pdf"
+		}
+	}
 }

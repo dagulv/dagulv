@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { link } from '$lib/api.svelte';
 	import type { postItem } from '$lib/types';
-	import { ChevronRight } from 'lucide-svelte';
+	import { ChevronRight } from '@lucide/svelte';
 
 	let { items = [], class: className }: { items: postItem[]; class?: string } = $props();
 </script>

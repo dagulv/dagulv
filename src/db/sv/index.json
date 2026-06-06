@@ -1,46 +1,46 @@
 {
-    "title": "",
-    "description": "Portfolio för Dag Ulvsbäck, en full-stack webbutvecklare som specialiserar sig på att bygga skalbara webbapplikationer med modern teknik. Utforska mina senaste projekt och hör av dig",
-    "intro": "Skapar system. Bygger sofistikerade program & upplevelser på webben.",
-    "content": "Jag är för närvarande en fullstackutvecklare på webbyrån Webbmaffian i Stockholm. Min expertis är inom Go, JavaScript, PostgreSQL, Svelte och PHP som jag jobbar dagligen med. Min passion är att bygga kvalitativa system, utöka mina kunskaper och ha kul när jag kodar.",
-    "articles": [],
-    "projects": [
-        {
-            "title": "Designstudion",
-            "description": "Ett komplett system för interaktiva 3D-modeller",
-            "link": "/projekt/designstudion"
-        }
-    ],
-    "experience": [
-        {
-            "imgUrl": "/webmafia.svg",
-            "title": "Webbmaffian",
-            "description": "Fullstackutvecklare",
-            "from": "2023-01-16",
-            "to": null
-        },
-        {
-            "imgUrl": "/smode.png",
-            "title": "Smode",
-            "description": "Webbutvecklare",
-            "from": "2022-06-22",
-            "to": "2022-12-16"
-        },
-        {
-            "imgUrl": null,
-            "title": "Frilans inom webbutveckling",
-            "description": "Webbutvecklare",
-            "from": "2021-06-27",
-            "to": "2022-06-22"
-        }
-    ],
-    "education": [
-        {
-            "imgUrl": "/kth.png",
-            "title": "KTH",
-            "description": "Fastighet & finans",
-            "from": "2020-07-12",
-            "to": "2021-06-26"
-        }
-    ]
+	"title": "",
+	"description": "Portfolio för Dag Ulvsbäck, en full-stack webbutvecklare som specialiserar sig på att bygga skalbara webbapplikationer med modern teknik. Utforska mina senaste projekt och hör av dig",
+	"intro": "Skapar system. Bygger sofistikerade program & upplevelser på webben.",
+	"content": "Jag är för närvarande en fullstackutvecklare på webbyrån Webbmaffian i Stockholm. Min expertis är inom Go, JavaScript, PostgreSQL, Svelte och PHP som jag jobbar dagligen med. Min passion är att bygga kvalitativa system, utöka mina kunskaper och ha kul när jag kodar.",
+	"articles": [],
+	"projects": [
+		{
+			"title": "Designstudion",
+			"description": "Ett komplett system för interaktiva 3D-modeller",
+			"link": "/projekt/designstudion"
+		}
+	],
+	"experience": [
+		{
+			"imgUrl": "/assets/webmafia.svg",
+			"title": "Webbmaffian",
+			"description": "Fullstackutvecklare",
+			"from": "2023-01-16",
+			"to": null
+		},
+		{
+			"imgUrl": "/assets/smode.png",
+			"title": "Smode",
+			"description": "Webbutvecklare",
+			"from": "2022-06-22",
+			"to": "2022-12-16"
+		},
+		{
+			"imgUrl": null,
+			"title": "Frilans inom webbutveckling",
+			"description": "Webbutvecklare",
+			"from": "2021-06-27",
+			"to": "2022-06-22"
+		}
+	],
+	"education": [
+		{
+			"imgUrl": "/assets/kth.png",
+			"title": "KTH",
+			"description": "Fastighet & finans",
+			"from": "2020-07-12",
+			"to": "2021-06-26"
+		}
+	]
 }

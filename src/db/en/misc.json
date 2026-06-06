@@ -1,26 +1,26 @@
 {
-    "name": "Dag Ulvsbäck",
-    "role": "Fullstack developer",
-    "present": "Present",
-    "experience": "Experience",
-    "education": "Education",
-    "skills": "Technical skills",
-    "projects": "Projects",
-    "articles": "Articles",
-    "today": "Today",
-    "nav": [
-        {
-            "label": "CV",
-            "link": "/cv_dag_ulvsback_fullstack_developer_2025_en.pdf"
-        }
-    ],
-    "home": "Home",
-    "content": "Content",
-    "resume": {
-        "text": "Read my resume ",
-        "link": {
-            "text": "here",
-            "href": "/cv_dag_ulvsback_fullstack_developer_2025_en.pdf"
-        }
-    }
+	"name": "Dag Ulvsbäck",
+	"role": "Fullstack developer",
+	"present": "Present",
+	"experience": "Experience",
+	"education": "Education",
+	"skills": "Technical skills",
+	"projects": "Projects",
+	"articles": "Articles",
+	"today": "Today",
+	"nav": [
+		{
+			"label": "CV",
+			"link": "/assets/cv_dag_ulvsback_fullstack_developer_2025_en.pdf"
+		}
+	],
+	"home": "Home",
+	"content": "Content",
+	"resume": {
+		"text": "Read my resume ",
+		"link": {
+			"text": "here",
+			"href": "/assets/cv_dag_ulvsback_fullstack_developer_2025_en.pdf"
+		}
+	}
 }

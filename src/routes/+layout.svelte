@@ -1,12 +1,11 @@
 <script>
 	import '../app.css';
-	import '@fontsource-variable/inter';
+	import '@fontsource-variable/inter/wght.css';
 	import { defaultLang } from '$lib/constants';
 	import { setLangContext, setMiscContext } from '$lib/contexts';
 	import Footer from '$components/Footer.svelte';
 
 	let { data, children } = $props();
-
 	setMiscContext(data.misc);
 	setLangContext(data.lang ?? defaultLang);
 </script>

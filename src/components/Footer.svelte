@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { link } from '$lib/api.svelte';
 	import { getMiscContext } from '$lib/contexts';
-	import { SiGithub, SiLinkedin } from '@icons-pack/svelte-simple-icons';
+	import { SiGithub } from '@icons-pack/svelte-simple-icons';
 
 	const misc = getMiscContext();
 </script>
@@ -24,11 +24,11 @@
 					>
 				</li>
 				<li class="contents">
-					<a
+					<!-- <a
 						class="hover:underline"
 						href="https://www.linkedin.com/in/dag-ulvsbäck-a7b773160"
 						target="_blank"><SiLinkedin size={20} /></a
-					>
+					> -->
 				</li>
 			</ul>
 		</div>
