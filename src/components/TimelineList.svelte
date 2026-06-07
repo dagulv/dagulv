@@ -30,7 +30,7 @@
 							alt={item.title}
 							width="48"
 							height="48"
-							class="aspect-square object-contain"
+							class="aspect-square object-contain overflow-hidden"
 						/>
 					{/if}
 				</span>

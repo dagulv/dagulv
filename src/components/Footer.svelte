@@ -24,11 +24,16 @@
 					>
 				</li>
 				<li class="contents">
-					<!-- <a
-						class="hover:underline"
+					<a
+						class="hover:underline h-5 w-5"
 						href="https://www.linkedin.com/in/dag-ulvsbäck-a7b773160"
-						target="_blank"><SiLinkedin size={20} /></a
-					> -->
+						target="_blank"
+						><span
+							class="bg-gold-700 block h-5 w-5 mask-[url(/assets/linkedin.svg)] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]"
+							role="img"
+							aria-label="Linkedin"
+						></span></a
+					>
 				</li>
 			</ul>
 		</div>
