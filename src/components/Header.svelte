@@ -18,7 +18,7 @@
 	const titleClass = 'animate text-gold-400 m-0 mb-1 block text-base font-bold';
 
 	const langsPaths = $derived.by(() => {
-		let path = page.url.pathname;
+		let path: string = page.url.pathname;
 
 		const normalizedSlug = slugs[path as keyof typeof slugs];
 

@@ -1,17 +1,14 @@
-import type { PageServerParentData } from './$types';
 import { defaultLang, otherLangs } from './constants';
 import { getLangContext } from './contexts';
 import { PageError } from './error';
-import type { lang, pageTypes, postPage } from './types';
+import type { lang, misc, pageTypes, postPage } from './types';
 import slugs from './slugs.json';
+
+type ParentData = { lang: lang; misc: misc };
 
 const db = import.meta.glob('$db/**/*.*', { eager: true });
 
-async function getContent(
-	parent: () => Promise<PageServerParentData>,
-	ext: 'json' | 'md',
-	paths: string[]
-) {
+async function getContent(parent: () => Promise<ParentData>, ext: 'json' | 'md', paths: string[]) {
 	const data = await parent();
 
 	const lang: lang = data.lang ?? defaultLang;
@@ -48,12 +45,12 @@ async function getContent(
 	return db[dbPath];
 }
 
-export async function getPost(parent: () => Promise<PageServerParentData>, ...paths: string[]) {
+export async function getPost(parent: () => Promise<ParentData>, ...paths: string[]) {
 	return (await getContent(parent, 'md', paths)) as postPage;
 }
 
 export async function getPage<T extends keyof pageTypes>(
-	parent: () => Promise<PageServerParentData>,
+	parent: () => Promise<ParentData>,
 	...paths: string[]
 ) {
 	return (await getContent(parent, 'json', paths)) as pageTypes[T];

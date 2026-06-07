@@ -6,7 +6,10 @@
 	import Footer from '$components/Footer.svelte';
 
 	let { data, children } = $props();
+
+	// svelte-ignore state_referenced_locally
 	setMiscContext(data.misc);
+	// svelte-ignore state_referenced_locally
 	setLangContext(data.lang ?? defaultLang);
 </script>
 
