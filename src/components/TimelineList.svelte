@@ -5,8 +5,7 @@
 	import { DateTime } from 'luxon';
 
 	let { items = [], class: className }: { items: timelineItem[]; class?: string } = $props();
-	// item.from?.toFormat('MMMM yyyy') ||
-	// item.to?.toFormat('MMMM yyyy') ??
+
 	const misc = getMiscContext();
 	const lang = getLangContext();
 </script>

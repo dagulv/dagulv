@@ -28,7 +28,7 @@
 				</div>
 			{/if}
 			{#if data.page.articles.length > 0}
-				<div class="max-w-80 min-w-[min(100%,calc(var(--spacing)*64))] flex-1">
+				<div class="max-w-80 min-w-[min(100%,--spacing(64))] flex-1">
 					<h2 class="animate label">{misc.articles}</h2>
 					<PostList items={data.page.articles} />
 				</div>

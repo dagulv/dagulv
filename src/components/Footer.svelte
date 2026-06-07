@@ -37,7 +37,7 @@
 						rel="noopener noreferrer"
 						aria-label="LinkedIn"
 						><span
-							class="bg-gold-700 block h-5 w-5 mask-[url(/assets/linkedin.svg)] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]"
+							class="bg-gold-700 block h-5 w-5 mask-[url(/assets/linkedin.svg)] mask-center mask-no-repeat mask-contain"
 							aria-hidden="true"
 						></span></a
 					>
