@@ -15,8 +15,6 @@
 		headingTag = 'h1'
 	}: { title: string; subtitle: string; class?: string; headingTag?: 'h1' | 'span' } = $props();
 
-	const titleClass = 'animate text-gold-400 m-0 mb-1 block text-base font-bold';
-
 	const langsPaths = $derived.by(() => {
 		let path: string = page.url.pathname;
 
@@ -73,15 +71,15 @@
 	<div class="flex w-full items-baseline justify-between">
 		<div>
 			{#if headingTag === 'span'}
-				<span class={titleClass}>{title}</span>
+				<span class="animate text-gold-400 m-0 mb-1 block text-base font-bold">{title}</span>
 			{:else}
-				<h1 class={titleClass}>{title}</h1>
+				<h1 class="animate text-gold-400 m-0 mb-1 block text-base font-bold">{title}</h1>
 			{/if}
 			<p class="animate text-gold-700 m-0 text-sm" style="--item: 1">{subtitle}</p>
 		</div>
 
 		<nav aria-label="Language">
-			<ul class="text-gold-500 flex gap-0.5">
+			<ul class="text-gold-500 flex gap-0.5 animate">
 				{#each langsPaths as l, i}
 					{@const [lang, link] = Object.entries(l)[0]}
 					<li class="contents">
