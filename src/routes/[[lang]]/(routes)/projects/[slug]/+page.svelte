@@ -19,7 +19,7 @@
 				{misc.home}
 			</a>
 			<div class="hidden md:block">
-				<h3 class="label">{misc.content}</h3>
+				<span class="label block">{misc.content}</span>
 				<ul class="text-gold-500 flex list-none flex-col gap-0.5 p-0 text-sm leading-6">
 					{#each data.page.headings as heading}
 						<li class="contents">
@@ -34,6 +34,7 @@
 	<main>
 		<Header
 			title={data.page.title}
+			headingTag="span"
 			subtitle={new Date(data.page.date).toLocaleString('sv-SE', {
 				day: 'numeric',
 				year: 'numeric',

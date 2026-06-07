@@ -15,12 +15,18 @@
 			<ul class="text-gold-700 m-0 flex gap-2 text-sm">
 				{#each misc.nav as item}
 					<li class="contents">
-						<a class="hover:underline" href={item.link} target="_blank">{item.label}</a>
+						<a class="hover:underline" href={item.link} target="_blank" rel="noopener noreferrer"
+							>{item.label}</a
+						>
 					</li>
 				{/each}
 				<li class="contents">
-					<a class="hover:underline" href="https://github.com/dagulv" target="_blank"
-						><SiGithub size={20} /></a
+					<a
+						class="hover:underline"
+						href="https://github.com/dagulv"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="GitHub"><SiGithub size={20} aria-hidden="true" /></a
 					>
 				</li>
 				<li class="contents">
@@ -28,10 +34,11 @@
 						class="hover:underline h-5 w-5"
 						href="https://www.linkedin.com/in/dag-ulvsbäck-a7b773160"
 						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="LinkedIn"
 						><span
 							class="bg-gold-700 block h-5 w-5 mask-[url(/assets/linkedin.svg)] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]"
-							role="img"
-							aria-label="Linkedin"
+							aria-hidden="true"
 						></span></a
 					>
 				</li>

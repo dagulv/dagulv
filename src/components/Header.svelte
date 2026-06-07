@@ -11,8 +11,9 @@
 	let {
 		title,
 		subtitle,
-		class: className
-	}: { title: string; subtitle: string; class?: string } = $props();
+		class: className,
+		headingTag = 'h1'
+	}: { title: string; subtitle: string; class?: string; headingTag?: string } = $props();
 
 	const langsPaths = $derived.by(() => {
 		let path = page.url.pathname;
@@ -69,17 +70,20 @@
 <header class={['flex justify-center', className]}>
 	<div class="flex w-full items-baseline justify-between">
 		<div>
-			<h1 class="text-gold-400 m-0 mb-1 text-base font-bold">{title}</h1>
+			<svelte:element this={headingTag} class="text-gold-400 m-0 mb-1 block text-base font-bold"
+				>{title}</svelte:element
+			>
 			<p class="text-gold-700 m-0 text-sm">{subtitle}</p>
 		</div>
 
-		<nav>
+		<nav aria-label="Language">
 			<ul class="text-gold-500 flex gap-0.5">
 				{#each langsPaths as l, i}
 					{@const [lang, link] = Object.entries(l)[0]}
 					<li class="contents">
 						<a
 							data-sveltekit-reload
+							aria-current={currLang === lang ? 'true' : undefined}
 							class={[
 								'text-gold-300 cursor-pointer border-none uppercase no-underline',
 								currLang === lang && 'underline'
@@ -88,7 +92,7 @@
 						>
 					</li>
 					{#if i < langsPaths.length - 1}
-						<span>/</span>
+						<li class="contents" aria-hidden="true"><span>/</span></li>
 					{/if}
 				{/each}
 			</ul>
