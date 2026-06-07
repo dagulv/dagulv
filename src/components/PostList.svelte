@@ -7,17 +7,18 @@
 </script>
 
 <ul class={['m-0 flex flex-col gap-4 p-0', className]}>
-	{#each items as item}
+	{#each items as item, i}
 		<li class="contents">
 			<a
 				href={link(item.link)}
-				class="group border-gold-600 bg-gold-800 flex flex-col gap-2 rounded-xs border px-4 py-3 no-underline transition"
+				style="--item: {i + 1}"
+				class="animate group border-gold-600 bg-gold-800 flex flex-col gap-2 rounded-xs border px-4 py-3 no-underline transition"
 			>
 				<p class="m-0 flex items-center gap-1 p-0 text-base font-bold group-hover:underline">
 					{item.title}
 					<ChevronRight
 						size="16"
-						class="text-gold-500 group-hover:animate-blurslide-in-x animate-blur-out-x opacity-0 [animation-play-state:paused]"
+						class="text-gold-500 -translate-x-2 opacity-0 blur-xs transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-hover:blur-none"
 					/>
 				</p>
 

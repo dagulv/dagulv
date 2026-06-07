@@ -12,13 +12,9 @@
 	--color-gold-800: #181716;
 	--color-gold-900: #161411;
 
-	--animate-blurslide-in-x: blurslide-in-x 300ms forwards;
-	--animate-blur-out-x: blur-out-x 300ms backwards;
-	--animate-slide-in: slide-in 300ms forwards;
-
 	@keyframes blurslide-in-y {
 		from {
-			opacity: 0.6;
+			opacity: 0;
 			filter: blur(0.25rem);
 			transform: translateY(1rem);
 		}
@@ -26,30 +22,6 @@
 			opacity: 1;
 			filter: blur(0);
 			transform: translateY(0);
-		}
-	}
-
-	@keyframes blurslide-in-x {
-		0% {
-			opacity: 0.6;
-			filter: blur(0.25rem);
-			transform: translateX(-1rem);
-		}
-		100% {
-			opacity: 1;
-			filter: blur(0);
-			transform: translateX(0);
-		}
-	}
-
-	@keyframes blur-out-x {
-		100% {
-			opacity: 1;
-			/* filter: blur(0); */
-		}
-		0% {
-			opacity: 0;
-			/* filter: blur(0.25rem); */
 		}
 	}
 }
@@ -159,10 +131,50 @@
 	}
 
 	.animate {
-		animation: blurslide-in-y 150ms both ease-in;
-		animation-delay: calc(150ms * var(--stagger));
+		animation: blurslide-in-y var(--anim-duration, 450ms) both ease-out;
+		animation-delay: calc(
+			var(--anim-step, 90ms) * var(--stagger, 0) + var(--anim-item-step, 60ms) * var(--item, 0)
+		);
+	}
 
-		@media screen and (prefers-reduced-motion: reduce) {
+	.animate-children > * {
+		animation: blurslide-in-y var(--anim-duration, 450ms) both ease-out;
+		animation-delay: var(--anim-prose-base, 0ms);
+	}
+	.animate-children > *:nth-child(2) {
+		animation-delay: calc(var(--anim-prose-base, 0ms) + 55ms);
+	}
+	.animate-children > *:nth-child(3) {
+		animation-delay: calc(var(--anim-prose-base, 0ms) + 110ms);
+	}
+	.animate-children > *:nth-child(4) {
+		animation-delay: calc(var(--anim-prose-base, 0ms) + 165ms);
+	}
+	.animate-children > *:nth-child(5) {
+		animation-delay: calc(var(--anim-prose-base, 0ms) + 220ms);
+	}
+	.animate-children > *:nth-child(6) {
+		animation-delay: calc(var(--anim-prose-base, 0ms) + 275ms);
+	}
+	.animate-children > *:nth-child(7) {
+		animation-delay: calc(var(--anim-prose-base, 0ms) + 330ms);
+	}
+	.animate-children > *:nth-child(8) {
+		animation-delay: calc(var(--anim-prose-base, 0ms) + 385ms);
+	}
+	.animate-children > *:nth-child(9) {
+		animation-delay: calc(var(--anim-prose-base, 0ms) + 440ms);
+	}
+	.animate-children > *:nth-child(10) {
+		animation-delay: calc(var(--anim-prose-base, 0ms) + 495ms);
+	}
+	.animate-children > *:nth-child(n + 11) {
+		animation-delay: calc(var(--anim-prose-base, 0ms) + 550ms);
+	}
+
+	@media screen and (prefers-reduced-motion: reduce) {
+		.animate,
+		.animate-children > * {
 			animation: none !important;
 		}
 	}

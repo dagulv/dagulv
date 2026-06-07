@@ -27,9 +27,9 @@
 				class="col-start-2 col-end-2 mb-8 w-full p-0"
 			/>
 
-			<p>{page.error.page.title}</p>
+			<p class="animate" style="--stagger: 1">{page.error.page.title}</p>
 
-			<p>{page.error.page.description}</p>
+			<p class="animate" style="--stagger: 2">{page.error.page.description}</p>
 		</main>
 
 		<aside class="col-start-3 h-max">

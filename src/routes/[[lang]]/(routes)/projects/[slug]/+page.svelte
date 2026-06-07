@@ -14,16 +14,18 @@
 <Wrapper class="blog">
 	<aside class="col-1 top-32 left-0 col-start-1 col-end-1 row-span-2 h-max md:sticky">
 		<nav class="flex h-max flex-col gap-16">
-			<a class="label flex items-center gap-1" href={link('/')}>
+			<a class="animate label flex items-center gap-1" href={link('/')}>
 				<ArrowUpLeft size="16" class="text-gold-700" />
 				{misc.home}
 			</a>
 			<div class="hidden md:block">
-				<span class="label block">{misc.content}</span>
+				<span class="animate label block" style="--item: 1">{misc.content}</span>
 				<ul class="text-gold-500 flex list-none flex-col gap-0.5 p-0 text-sm leading-6">
-					{#each data.page.headings as heading}
+					{#each data.page.headings as heading, i}
 						<li class="contents">
-							<a href={`#${heading.value}`}>{heading.label}</a>
+							<a class="animate" style="--item: {i + 2}" href={`#${heading.value}`}
+								>{heading.label}</a
+							>
 						</li>
 					{/each}
 				</ul>
@@ -43,11 +45,13 @@
 			class="col-start-2 col-end-2 mb-8 w-full p-0"
 		/>
 
-		{@html data.content}
+		<div class="animate-children" style="--anim-prose-base: 120ms">
+			{@html data.content}
+		</div>
 	</main>
 
-	<aside class="col-start-3 h-max">
-		<p class="m-0 mt-24 hidden text-sm italic md:inline">
+	<aside class="col-start-3 h-max" style="--stagger: 2">
+		<p class="animate m-0 mt-24 hidden text-sm italic md:inline">
 			{misc.resume.text}
 			<a target="_blank" href={misc.resume.link.href} class="a">
 				<strong>{misc.resume.link.text}</strong>

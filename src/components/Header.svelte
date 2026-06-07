@@ -13,7 +13,9 @@
 		subtitle,
 		class: className,
 		headingTag = 'h1'
-	}: { title: string; subtitle: string; class?: string; headingTag?: string } = $props();
+	}: { title: string; subtitle: string; class?: string; headingTag?: 'h1' | 'span' } = $props();
+
+	const titleClass = 'animate text-gold-400 m-0 mb-1 block text-base font-bold';
 
 	const langsPaths = $derived.by(() => {
 		let path = page.url.pathname;
@@ -70,10 +72,12 @@
 <header class={['flex justify-center', className]}>
 	<div class="flex w-full items-baseline justify-between">
 		<div>
-			<svelte:element this={headingTag} class="text-gold-400 m-0 mb-1 block text-base font-bold"
-				>{title}</svelte:element
-			>
-			<p class="text-gold-700 m-0 text-sm">{subtitle}</p>
+			{#if headingTag === 'span'}
+				<span class={titleClass}>{title}</span>
+			{:else}
+				<h1 class={titleClass}>{title}</h1>
+			{/if}
+			<p class="animate text-gold-700 m-0 text-sm" style="--item: 1">{subtitle}</p>
 		</div>
 
 		<nav aria-label="Language">

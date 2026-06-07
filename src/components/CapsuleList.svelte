@@ -5,10 +5,11 @@
 </script>
 
 <ul class="m-0 flex flex-wrap gap-1 p-0">
-	{#each items as item}
+	{#each items as item, i}
 		<li class="contents">
 			<span
-				class="bg-gold-750 text-gold-500 hover:bg-gold-600 hover:text-gold-400 flex items-center gap-1 rounded-sm px-2 py-1 text-sm transition"
+				style="--item: {i + 1}"
+				class="animate bg-gold-750 text-gold-500 hover:bg-gold-600 hover:text-gold-400 flex items-center gap-1 rounded-sm px-2 py-1 text-sm transition"
 			>
 				{#if typeof item.icon === 'string'}
 					<img class="size-4" src={item.icon} alt={item.label} />
