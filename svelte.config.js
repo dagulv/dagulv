@@ -1,23 +1,17 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import fs from 'fs';
 
-const slugs = JSON.parse(fs.readFileSync("src/lib/slugs.json", 'utf-8'));
+const slugs = JSON.parse(fs.readFileSync('src/lib/slugs.json', 'utf-8'));
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: undefined,
-			precompress: false,
-			strict: true
-		}),
+		adapter: adapter(),
 		alias: {
-			'$db': './src/db',
-			'$components': 'src/components'
+			$db: './src/db',
+			$components: 'src/components'
 		},
 		prerender: {
 			entries: Object.keys(slugs),
