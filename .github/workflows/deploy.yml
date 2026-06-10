@@ -1,43 +1,90 @@
-name: Deploy to BunnyCDN
+name: Deploy
 
 on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  # build-and-deploy:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+
+  #     - name: Install pnpm
+  #       uses: pnpm/action-setup@v6
+  #       with:
+  #         version: 10
+  #         cache: true
+
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 24
+  #         cache: pnpm
+
+  #     - name: Install Dependencies
+  #       run: pnpm install --frozen-lockfile
+
+  #     - name: Build SvelteKit
+  #       run: pnpm run build
+
+  #     - name: Upload to BunnyCDN
+  #       uses: ayeressian/bunnycdn-storage-deploy@v2.2.5
+  #       with:
+  #         source: "build"
+  #         storageEndpoint: "${{ secrets.STORAGE_ENDPOINT }}"
+  #         storageZoneName: "${{ secrets.STORAGE_NAME }}"
+  #         storagePassword: "${{ secrets.STORAGE_PASSWORD }}"
+  #         accessKey: "${{ secrets.STORAGE_KEY }}"
+  #         pullZoneId: "${{ secrets.ZONE_ID }}"
+  #         upload: "true"
+  #         remove: "true"
+  #         purgePullZone: "true"
+
+  build-to-server:
+    name: Build & deploy Node Server
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
-          cache: true
+    - name: Install pnpm
+      uses: pnpm/action-setup@v6
+      with:
+        version: 10
+        cache: true
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: pnpm
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24
+        cache: pnpm
 
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+    - name: Install Dependencies
+      run: pnpm install --frozen-lockfile
 
-      - name: Build SvelteKit
-        run: pnpm run build
+    - name: Build SvelteKit
+      run: pnpm run build
 
-      - name: Upload to BunnyCDN
-        uses: ayeressian/bunnycdn-storage-deploy@v2.2.5
-        with:
-          source: "build"
-          storageEndpoint: "${{ secrets.STORAGE_ENDPOINT }}"
-          storageZoneName: "${{ secrets.STORAGE_NAME }}"
-          storagePassword: "${{ secrets.STORAGE_PASSWORD }}"
-          accessKey: "${{ secrets.STORAGE_KEY }}"
-          pullZoneId: "${{ secrets.ZONE_ID }}"
-          upload: "true"
-          remove: "true"
-          purgePullZone: "true"
+    - name: Deploy
+      run: |
+        mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts
+        ssh-keyscan ${{ vars.HOST }} >> ~/.ssh/known_hosts
+        eval $(ssh-agent)
+        ssh-add - <<< "${{ secrets.KEY }}"
+        rsync -azh --delay-updates --stats ${{ github.workspace }}/build/ ${{ vars.USERNAME }}@${{ vars.HOST }}:${{ vars.TARGET }}
+
+    - name: Migrate & Restart service
+      uses: appleboy/ssh-action@v1.2.5
+      with:
+        host: ${{ vars.HOST }}
+        username: ${{ vars.USERNAME }}
+        key: ${{ secrets.KEY }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: |
+          set -a
+          source /var/www/dagulv/.env
+          set +a
+          sudo systemctl restart dagulv.service
