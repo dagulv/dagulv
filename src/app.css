@@ -147,14 +147,14 @@
 	}
 
 	.animate {
-		animation: blurslide-in-y var(--anim-duration, 450ms) both ease-out;
+		animation: blurslide-in-y var(--anim-duration, 450ms) backwards ease-out;
 		animation-delay: calc(
 			var(--anim-step, 90ms) * var(--stagger, 0) + var(--anim-item-step, 60ms) * var(--item, 0)
 		);
 	}
 
 	.animate-children > * {
-		animation: blurslide-in-y var(--anim-duration, 450ms) both ease-out;
+		animation: blurslide-in-y var(--anim-duration, 450ms) backwards ease-out;
 		animation-delay: var(--anim-prose-base, 0ms);
 	}
 	.animate-children > *:nth-child(2) {
